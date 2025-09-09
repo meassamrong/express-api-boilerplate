@@ -1,0 +1,8 @@
+{
+    "app": {
+        "enable_logger": true,
+        "logger_keep_day": "7d",
+        "logger_max_file_size": "20m",
+        "enable_req_logger": true
+    }
+}

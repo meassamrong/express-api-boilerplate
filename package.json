@@ -1,0 +1,66 @@
+{
+    "name": "expressjs-rest-api-boilerplate",
+    "version": "1.0.0",
+    "description": "this boilerplate make with Node js(expressJs)",
+    "keywords": [
+        "API",
+        "NODEJS",
+        "EXPRESSJS",
+        "JWT",
+        "BACKEND",
+        "SERVER"
+    ],
+    "homepage": "https://github.com/meassamrong/expressjs-rest-api-boilerplate#readme",
+    "bugs": {
+        "url": "https://github.com/meassamrong/expressjs-rest-api-boilerplate/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/meassamrong/expressjs-rest-api-boilerplate.git"
+    },
+    "license": "GPL-2.0-only",
+    "author": "meassamrong",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write .",
+        "test": "node index.js",
+        "dev": "node --watch index.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "compression": "^1.8.1",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "express-async-handler": "^1.2.0",
+        "express-rate-limit": "^8.0.1",
+        "express-session": "^1.18.2",
+        "express-validator": "^7.2.1",
+        "fs": "^0.0.1-security",
+        "helmet": "^8.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "luxon": "^3.7.1",
+        "mongoose": "^8.17.1",
+        "mongoose-paginate-v2": "^1.9.1",
+        "morgan": "^1.10.1",
+        "path": "^0.12.7",
+        "swagger-ui-express": "^5.0.1",
+        "winston": "^3.17.0",
+        "winston-daily-rotate-file": "^5.0.0",
+        "yamljs": "^0.3.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.29.0",
+        "esbuild": "^0.25.5",
+        "esbuild-node-externals": "^1.18.0",
+        "eslint": "^9.29.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.4.1",
+        "globals": "^16.2.0",
+        "prettier": "^3.5.3"
+    }
+}

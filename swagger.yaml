@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: Express API Boilerplate
+  version: 1.0.0
+  description: API documentation using Swagger YAML
+servers:
+  - url: http://localhost:5000
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths:
+  /api/user/login:
+    post:
+      summary: User login
+      tags:
+        - User Auth
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  example: example@example.com
+                password:
+                  type: string
+                  example: hello1234
+      responses:
+        "200":
+          description: Login successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: You're login successfully
+                  error:
+                    type: boolean
+                    example: false
+                  a_token:
+                    type: string
+                    example: Sdasoidjqj3390SDSDS8s790qeiokmrdfdsfsdf
+                  r_token:
+                    type: string
+                    example: sdlasdi-asidapkdmqsSdkjqlweqwewq
+                  r_token_id:
+                    type: string
+                    example: 13123923jqeknqiwehqweqhweqwpu0qeqwe
+
+  /api/user/create:
+    post:
+      summary: Create new user (Admin permission required)
+      tags:
+        - User Management
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - first_name
+                - last_name
+                - email
+                - password
+                - confirmPassword
+              properties:
+                first_name:
+                  type: string
+                  example: John
+                last_name:
+                  type: string
+                  example: Doe
+                email:
+                  type: string
+                  format: email
+                  example: john@example.com
+                password:
+                  type: string
+                  example: Secret123!
+                confirmPassword:
+                  type: string
+                  example: Secret123!
+      responses:
+        "200":
+          description: Successfully created user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User created successfully
