@@ -9,13 +9,15 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const swaggerUi = require("swagger-ui-express");
-const YAML = require("yamljs");
+const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
 const config = require('./src/core/app_config.json');
 const logger = require('./src/utils/logger');
 const { jsonErrorHandler } = require('./src/middlewares/index');
 const mongodbConnection = require('./src/databases/mongodb_connection');
-const swaggerDocument = YAML.load("./swagger.yaml");
+const swaggerPath = path.join(__dirname, 'swagger.yaml');
+const swaggerDocument = YAML.load(swaggerPath);
 
 // config define
 const PORT = process.env.PORT || 5000;
@@ -83,7 +85,11 @@ if (config.app.enable_req_logger) {
 const userRouter = require('./src/routes/users/auth')
 app.use('/api/user', userRouter)
 // swagger docs
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, { explorer: true }));
+app.get('/api-docs.json', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerDocument);
+});
 
 // start server
 server.listen(PORT, () => {

@@ -1,9 +1,12 @@
-
-
-const getPermissionsFromRoles = (userRoles) => {
-    return userRoles.flatMap((roleName) => {
+const getPermissionsFromRoles = (userRoles = []) => {
+    return userRoles.flatMap((role) => {
         // const role = rolesDefined.find((r) => r.name === roleName);
         // return role?.permissions || [];
+        if (role && Array.isArray(role.permissions)) {
+            return role.permissions;
+        }
+
+        return [];
     });
 };
 

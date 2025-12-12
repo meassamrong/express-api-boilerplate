@@ -2,9 +2,22 @@ openapi: 3.0.0
 info:
   title: Express API Boilerplate
   version: 1.0.0
-  description: API documentation using Swagger YAML
+  description: |
+    Production-ready Express.js boilerplate featuring JWT authentication, MongoDB, Redis caching, and structured logging. Use this spec to explore the available endpoints and required payloads.
+  contact:
+    name: API Support
+    url: https://github.com/meassamrong/expressjs-rest-api-boilerplate/issues
+  license:
+    name: GPL-2.0-only
+    url: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 servers:
   - url: http://localhost:5000
+    description: Local development server
+tags:
+  - name: User Auth
+    description: Obtain JWT access and refresh tokens.
+  - name: User Management
+    description: Manage platform users (requires admin privileges).
 
 components:
   securitySchemes:
